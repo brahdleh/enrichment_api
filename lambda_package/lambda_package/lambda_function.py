@@ -51,7 +51,7 @@ def lambda_handler(event, context):
     result = scrape_homepage_text(url)
 
     # Summarize the homepage text
-    result = summarize_content
+    result = summarize_content(result, max_tokens=50)
         
 
 
@@ -132,7 +132,7 @@ def summarize_content(text: str, max_tokens=200):
 
         messages = [
             {"role": "system", "content": "You are a helpful assistant that concisely summarises company information."},
-            {"role": "user", "content": f"Please provide a concise paragraph fewer than 50 words summarising this company's products and services and target audience. Be objective and clear about what the company actually creates and provides, ignoring marketing.:\n\n{text}"}  
+            {"role": "user", "content": f"Please provide a concise paragraph fewer than 20 words summarising this company's products and services and target audience. Be objective and clear about what the company actually creates and provides, ignoring marketing.:\n\n{text}"}  
         ]
 
         response = openai.ChatCompletion.create(
