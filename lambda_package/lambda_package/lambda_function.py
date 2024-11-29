@@ -8,7 +8,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = "https://preprod-obai.openai.azure.com/"
 openai.api_version = "2023-03-15-preview"
-openai.api_key = "5c450e93bf58454b8a177835e14596d9"
+openai.api_key = "INSERT API KEY"
 
 
 def lambda_handler(event, context):
